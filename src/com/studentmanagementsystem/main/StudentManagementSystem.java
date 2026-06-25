@@ -1,7 +1,6 @@
 package src.com.studentmanagementsystem.main;
 import java.util.*;
 
-import src.com.studentmanagementsystem.service.LoginSystem;
 import src.com.studentmanagementsystem.service.UserService;
 import src.com.studentmanagementsystem.menus.Menu;
 import src.com.studentmanagementsystem.model.User;
@@ -12,11 +11,8 @@ public class StudentManagementSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        LoginSystem loginSystem = new LoginSystem();
-
         System.out.println("===== Student Management System =====");
 
-        // boolean programExit = false;
         while (true) {
   
             System.out.println("\n--- Main Menu ---");
