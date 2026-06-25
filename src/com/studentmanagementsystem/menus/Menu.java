@@ -5,10 +5,12 @@ import java.util.Scanner;
 import src.com.studentmanagementsystem.model.Department;
 import src.com.studentmanagementsystem.model.Faculty;
 import src.com.studentmanagementsystem.model.Student;
+import src.com.studentmanagementsystem.service.StudentService;
 
 public class Menu {
     
     public static Department dept = new Department("Computer Science");
+    public static StudentService studentService = new StudentService();
 
     public static void adminMenu(Scanner sc){
         System.out.println("\n--- Admin Menu ---");
@@ -22,30 +24,35 @@ public class Menu {
         System.out.println("8. Delete Faculty");
         System.out.println("9. Logout");
         System.out.print("Choice: ");
-        int choiceA = sc.nextInt(); sc.nextLine();
+        int choice = Integer.parseInt(sc.nextLine());
 
-        switch (choiceA) {
-            case 1 -> dept.addStudent(inputStudent(sc));
-            case 2 -> dept.displayStudents();
-            case 3 -> {
-                System.out.print("Enter roll no to update: ");
-                int rollUp = sc.nextInt(); sc.nextLine();
-                Student stuUp = dept.findStudent(rollUp);
-                if (stuUp != null) {
-                    Student updated = inputStudent(sc, rollUp);
-                    stuUp.update(updated.getName(), updated.getName(), 80, true, "Updated");
-                    System.out.println("Student updated!");
-                } else System.out.println("Student not found!");
-            }
-            case 4 -> {
+        switch (choice) {
+            case 1:
+                dept.addStudent(inputStudent(sc));
+                break;
+
+            case 2:
+                dept.displayStudents();
+                break;
+
+            case 3: 
+                studentService.updateStudent(sc);
+                break;
+            
+            case 4:
                 System.out.print("Enter roll no to delete: ");
                 int rollDel = sc.nextInt(); sc.nextLine();
                 if (dept.removeStudent(rollDel)) System.out.println("Student deleted!");
                 else System.out.println("Student not found!");
-            }
-            case 5 -> dept.addFaculty(inputFaculty(sc));
-            case 6 -> dept.displayFaculties();
-            case 7 -> {
+                break;
+            
+            case 5:
+                dept.addFaculty(inputFaculty(sc));
+                break;
+            case 6 : 
+                dept.displayFaculties();
+                break;
+            case 7 : 
                 System.out.print("Enter faculty name to update: ");
                 String fname = sc.nextLine();
                 Faculty facUp = dept.findFaculty(fname);
@@ -54,14 +61,17 @@ public class Menu {
                     facUp.update(updated.getName(), updated.getName());
                     System.out.println("Faculty updated!");
                 } else System.out.println("Faculty not found!");
-            }
-            case 8 -> {
+                break;
+            
+            case 8 : 
                 System.out.print("Enter faculty name to delete: ");
                 String fdel = sc.nextLine();
                 if (dept.removeFaculty(fdel)) System.out.println("Faculty deleted!");
                 else System.out.println("Faculty not found!");
-            }
-            default -> System.out.println("Invalid choice!");
+                break;
+            
+            default : 
+                System.out.println("Invalid choice!");
         }
     
     }
