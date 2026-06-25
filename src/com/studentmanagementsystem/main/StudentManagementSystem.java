@@ -16,8 +16,8 @@ public class StudentManagementSystem {
 
         System.out.println("===== Student Management System =====");
 
-        boolean programExit = false;
-        while (!programExit) {
+        // boolean programExit = false;
+        while (true) {
   
             System.out.println("\n--- Main Menu ---");
             System.out.println("1. Register");
@@ -47,8 +47,6 @@ public class StudentManagementSystem {
 
             
         }
-
-        System.out.println("Thank you for using the system!");
     }
 
     private static void register(Scanner sc) {
