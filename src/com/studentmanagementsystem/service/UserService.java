@@ -8,11 +8,6 @@ public class UserService {
 
     LoginSystem loginSystem = new LoginSystem();
 
-    public void register(Scanner sc) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'register'");
-    }
-
     public User login(Scanner sc) throws Exception {
         while(true){
             System.out.println("\n--- Select Role ---");
@@ -38,11 +33,6 @@ public class UserService {
                     System.out.println("Invalid Choice");
                     throw new Exception("Invalid Choice");
             };
-
-            if (role.isEmpty()) {
-                System.out.println("Invalid role! Back to main menu.");
-                continue;
-            }
 
             System.out.print("Enter username: ");
             String uname = sc.nextLine();
