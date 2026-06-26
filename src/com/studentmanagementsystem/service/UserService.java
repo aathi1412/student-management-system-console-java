@@ -2,11 +2,14 @@ package src.com.studentmanagementsystem.service;
 
 import java.util.Scanner;
 
+import src.com.studentmanagementsystem.DAO.StudentDAO;
+import src.com.studentmanagementsystem.model.Student;
 import src.com.studentmanagementsystem.model.User;
 
 public class UserService {
 
     LoginSystem loginSystem = new LoginSystem();
+    public StudentDAO studentDAO = new StudentDAO();
 
     public User login(Scanner sc) throws Exception {
         while(true){
@@ -40,6 +43,7 @@ public class UserService {
             String pass = sc.nextLine();
 
             User loggedIn = loginSystem.login(uname, pass, role);
+            Student currentUser = studentDAO.validateLogin(uname, pass, role);
             
             if (loggedIn == null) {
                 System.out.println("Invalid login! Try again.");
