@@ -1,4 +1,5 @@
 package src.com.studentmanagementsystem.model;
+
 import java.util.*;
 
 public class Department {
