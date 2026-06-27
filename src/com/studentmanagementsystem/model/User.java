@@ -1,4 +1,5 @@
 package src.com.studentmanagementsystem.model;
+
 public class User {
     private String username;
     private String password;
