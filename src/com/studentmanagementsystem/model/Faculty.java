@@ -1,5 +1,6 @@
 package src.com.studentmanagementsystem.model;
-public  class Faculty {
+
+public class Faculty {
     private String name;
     private String subject;
 
@@ -9,6 +10,8 @@ public  class Faculty {
     }
 
     public String getName() { return name; }
+
+    public String getSubject() { return subject; }
 
     public void update(String name, String subject) {
         this.name = name;
